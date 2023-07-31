@@ -47,7 +47,7 @@ def MakeEmbed(json):
      embed.description = json["payload"]["release"]["body"]
   elif json["type"] == "PushEvent":
      link = f'https://github.com/{repo}/compare/{json["payload"]["before"]}..{json["payload"]["head"]}'
-     embed.link = link
+     embed.url = link
      embed.title = f'{user} pushed {json["payload"]["size"]} commit(s) to {repo}'
      embed.description = ''
      for i in json["payload"]["commits"]:
