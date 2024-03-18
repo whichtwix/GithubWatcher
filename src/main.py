@@ -70,6 +70,9 @@ class GithubWatcher:
       print('rate limited')
       return
 
+    if self.lastid == 0:
+      await self.SetEtagAndId()
+    
     url = http.request('GET',url=self.url, headers=self.Headers)
 
     if url.status == 200:
